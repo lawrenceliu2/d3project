@@ -1,4 +1,10 @@
-firstL -- TIMESTAMP\n
+Team baseFunctionality
+Members: Wilson Berkow
+Chloe Delfau
+Lawrence Liu
+Fortune Soleil
+
+Format: firstL -- TIMESTAMP\n
 
 lawrenceL -- 2017-03-27 12:57
 Created devlog
@@ -15,7 +21,7 @@ Discussed our ideas with two groups:
 
 wilsonB -- 2017-03-27 22:00
 Added DOE demographic datasets to README.md and
-describd how we would present demographic data.
+described how we would present demographic data.
 
 fortuneS -- 2017-03-27 23:00
 Drew some stuff of questionable accuracy.
