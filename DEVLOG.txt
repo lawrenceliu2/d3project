@@ -12,3 +12,7 @@ Discussed our ideas with two groups:
 - The demographics of Stuy relative to the rest
   of the city is interesting and related to all of
   us, but difficult to "bring alive".
+
+wilsonB -- 2017-03-27 22:00
+Added DOE demographic datasets to README.md and
+describd how we would present demographic data.
