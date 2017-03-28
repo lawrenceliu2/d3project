@@ -1,4 +1,14 @@
 firstL -- TIMESTAMP\n
 
-lawrenceL -- 2017-3-27 12:57
+lawrenceL -- 2017-03-27 12:57
 Created devlog
+
+wilsonB, chloeD -- 2017-03-27 8th pd.
+Discussed our ideas with two groups:
+- Oil inflows/outflows between nations interests
+  some people a lot and others not at all.
+- College admission rescindency rates would be
+  very funny if we could get the dataset.
+- The demographics of Stuy relative to the rest
+  of the city is interesting and related to all of
+  us, but difficult to "bring alive".
