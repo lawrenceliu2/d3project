@@ -1,4 +1,5 @@
 borough, year, population, white (includes white hispanics), non-hispanic whites, black, asian, other or mixed, hispanic/latino, foreign born
+
 nyc, 1900, 3437202, 3369898, null, 60666, 6607, 31, null, 1270080
 nyc, 1910, 4766883, 4669162, null, 91709, 5669, 343, null, 1944357
 nyc, 1920, 5620048, 5459463, null, 152467, 7969, 149, null, 2028160 
