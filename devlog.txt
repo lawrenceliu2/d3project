@@ -29,3 +29,7 @@ Drew some stuff of questionable accuracy.
 lawrenceL -- 2017-03-28 22:00
 Created basic files for Flask app, html, and js
 Updated design doc
+
+fortuneS -- 2017-03-28 23:00
+Redrew data presentation
+Minor contributions to design doc
