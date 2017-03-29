@@ -25,3 +25,7 @@ described how we would present demographic data.
 
 fortuneS -- 2017-03-27 23:00
 Drew some stuff of questionable accuracy.
+
+lawrenceL -- 2017-03-28 22:00
+Created basic files for Flask app, html, and js
+Updated design doc
