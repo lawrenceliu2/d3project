@@ -33,3 +33,6 @@ Updated design doc
 fortuneS -- 2017-03-28 23:00
 Redrew data presentation
 Minor contributions to design doc
+
+fortuneS -- 2017-03-29 13:50
+Added flavor text
