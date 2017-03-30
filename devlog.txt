@@ -34,5 +34,15 @@ fortuneS -- 2017-03-28 23:00
 Redrew data presentation
 Minor contributions to design doc
 
+chloeD -- 2017-03-28 23:30
+Made the CSV files and decided on the format for the data 
+
 fortuneS -- 2017-03-29 13:50
 Added flavor text
+
+chloeD -- 2017-03-29 14:05
+Worked on the CSV file data inputs (there was no way to download the data or easily copy paste stuf, so a lot of data aka all of it was added manually) *SAD FACE*
+
+chloeD --2017-03-29 22:05
+Finished ALL the CSV data inputs!!! THANK GOODNESS :)
+My next task is pretty simple: make python files/fxns to access data from the csv so that the flask app can call these fxns
