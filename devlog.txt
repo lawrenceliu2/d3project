@@ -46,3 +46,6 @@ Worked on the CSV file data inputs (there was no way to download the data or eas
 chloeD --2017-03-29 22:05
 Finished ALL the CSV data inputs!!! THANK GOODNESS :)
 My next task is pretty simple: make python files/fxns to access data from the csv so that the flask app can call these fxns
+
+wilsonB -- 2017-03-31 1:45
+Make initial D3 circle drawing, using random data
