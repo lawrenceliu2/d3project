@@ -21,7 +21,7 @@ def racepercent(borough, year):
         other = row[6] / population
         hispanic = row[7] / population
         foreign = row[8] / population
-        races = [white, black, asian, otehr, hispanic, foreign]
+        races = {"white": white, "black": black, "asian": asian, "other": other, "hispanic": hispanic, "foreign": foreign}
     return races
         
         
