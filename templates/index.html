@@ -24,7 +24,11 @@
     <script src="static/bubbles.js"></script>
       
 
-    <input type="range" name="Year" id="yearInput" min="2000" max="2016" onchange="">
+    <form name="registrationForm">
+      <input type="range" name="year" id="yearInput" value="2008" min="2000" max="2016" oninput="yearOutput.value = yearInput.value">
+      <output name="yearOutput" id="yearOutput">2008</output>
+    </form>
+
     </center>
   </body>
 </html>
