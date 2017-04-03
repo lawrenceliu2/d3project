@@ -1,4 +1,4 @@
-(function () {
+window.onload = function () {
     "use strict";
     // Use http://www.w3.org/2000/svg for svg elements
 
@@ -13,20 +13,31 @@
 	data.push(yearData);
     }
 
+    let slider = document.getElementById("yearInput");
+
     let currentYearIndex = function () {
-	// TODO: use slider once slider is made
-	return 0;
+	return +slider.value - (+slider.getAttribute("min"));
     };
 
     let circData = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-    var bubbles = special.selectAll("circle").data(circData);
-    bubbles.enter().append(function (schoolIndex) {
+    let bubbles = special.selectAll("circle").data(circData);
+    let circles = bubbles.enter().append(function (schoolIndex) {
 	var circ = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 	circ.setAttribute("cx", schoolIndex * 50 + 25);
 	circ.setAttribute("cy", 50);
 	return circ;
-    }).attr("r", function (schoolIndex) {
-	let yr = data[currentYearIndex()];
-	return "" + Math.sqrt(yr[schoolIndex] / Math.PI);
     });
-}());
+
+    let updateCircles = function () {
+	circles.transition().attr("r", function (schoolIndex) {
+	    let yr = data[currentYearIndex()];
+	    return "" + Math.sqrt(yr[schoolIndex] / Math.PI);
+	});
+    };
+
+    updateCircles();
+
+    slider.addEventListener("input", function () {
+	updateCircles();
+    });
+};
