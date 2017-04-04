@@ -1,6 +1,6 @@
 import csv
 
-n = open('csv/nyc.csv')
+n = open('csv/nyc.csv', 'r')
 nyc = csv.reader(n)
 
 d = open('csv/nycdoe.csv')
@@ -24,18 +24,57 @@ def racepercent(borough, year):
             races = {"population": population, "white": white, "black": black, "asian": asian, "other": other, "hispanic": hispanic, "foreign": foreign}
     return races
 
-p = racepercent(nyc, 1900)
-print p        
-#def genderpercent(borough, year):
-#    for row in ny
+#p = racepercent(nyc, 1900)
+#print p
+# WHAT IS THIS ERROR WHY IS IT BEING LIKE THIS TypeError: '_csv.reader' object has no attribute '__getitem__'
 
-#function that takes borough and year
-#percent gender
-#percent race
+def doe_genderpercent(borough, year):
+    genders = {}
+    for row in doe[1:]:
+        print row
+        if (row[0] == borough and row[1] == year):
+            total = row[2] * 1.0
+            female = row[3] / total
+            male = row[4] / population
+            genders = {"total": total, "female": female, "male": male}
+    return genders
 
-#same thing excpet doesnt take gender
-#percent race
+def doe_racepercent(borough, year):
+    races = {}
+    for row in doe[1:]:
+        print row
+        if (row[0] == borough and row[1] == year):
+            total = row[2] * 1.0
+            asian = row[3] / total
+            black = row[4] / total
+            hispanic = row[5] / total
+            other = row[6] / total
+            white = row[7] / total
+            races = {"total": total, "asian": asian, "black": black, "hispanic": hispanic, "other": other, "white": white}
+    return races
 
-#same thing except takes school and year
-#percent race
+def hs_genderpercent(borough, year):
+    genders = {}
+    for row in hs[1:]:
+        print row
+        if (row[0] == borough and row[1] == year):
+            total = row[2] * 1.0
+            female = row[3] / total
+            male = row[4] / population
+            genders = {"total": total, "female": female, "male": male}
+    return genders
+
+def hs_racepercent(borough, year):
+    races = {}
+    for row in hs[1:]:
+        print row
+        if (row[0] == borough and row[1] == year):
+            total = row[2] * 1.0
+            asian = row[3] / total
+            black = row[4] / total
+            hispanic = row[5] / total
+            other = row[6] / total
+            white = row[7] / total
+            races = {"total": total, "asian": asian, "black": black, "hispanic": hispanic, "other": other, "white": white}
+    return races
 
