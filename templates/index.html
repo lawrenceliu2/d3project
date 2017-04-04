@@ -15,15 +15,24 @@
     groups in these environments.
 
     <div>
-      <p>Specialized High Schools:</p>
+      <p>DoE & Specialized High Schools:</p>
       <svg id="slate-special"></svg>
     </div>
       
-    <form name="registrationForm">
-      <input type="range" name="year" id="yearInput" value="2008" min="2000" max="2016" oninput="yearOutput.value = yearInput.value">
-      <output name="yearOutput" id="yearOutput">2008</output>
+    <form name="yearselector">
+      <input type="range" name="year" id="yearInput" value="2013" min="2011" max="2015" oninput="yearOutput.value = yearInput.value">
+      <output name="yearOutput" id="yearOutput">2013</output>
     </form>
-    </center>
+
+    <div>
+      <p>Overall Population Data:</p>
+      <svg></svg>
+    </div>
+
+    <form name="yearselector2">
+      <input type="range" name="year2" id="yearInput2" value="1950" min="1900" max="2010" step="10" oninput="yearOutput2.value = yearInput2.value">
+      <output name="yearOutput2" id="yearOutput2">1950</output>
+    </form>
 
     <script src="https://d3js.org/d3.v3.min.js"></script>
 
