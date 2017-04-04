@@ -43,9 +43,12 @@ Added flavor text
 chloeD -- 2017-03-29 14:05
 Worked on the CSV file data inputs (there was no way to download the data or easily copy paste stuf, so a lot of data aka all of it was added manually) *SAD FACE*
 
-chloeD --2017-03-29 22:05
+chloeD -- 2017-03-29 22:05
 Finished ALL the CSV data inputs!!! THANK GOODNESS :)
 My next task is pretty simple: make python files/fxns to access data from the csv so that the flask app can call these fxns
+
+chloeD -- 2017-03-30 14:05
+Wrote out all the python functions in pseudo code
 
 wilsonB -- 2017-03-31 13:45
 Make initial D3 circle drawing, using random data
@@ -55,3 +58,9 @@ Opened issues on backend function returning lists and the need of a front end sl
 
 fortuneS -- 2017-04-03 14:00
 Added slider, attempted some styling
+
+chloeD -- 2017-04-03 14:05
+Wrote the first function in python
+
+chloeD -- 2017-04-04 01:30
+Wrote all the python functions... there is a bug and I'll fix it in class!
