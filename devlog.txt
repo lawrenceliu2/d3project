@@ -52,3 +52,6 @@ Make initial D3 circle drawing, using random data
 
 lawrenceL -- 2017-03-31 14:05
 Opened issues on backend function returning lists and the need of a front end slider
+
+fortuneS -- 2017-04-03 14:00
+Added slider, attempted some styling
