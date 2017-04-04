@@ -37,7 +37,18 @@ window.onload = function () {
 
     updateCircles();
 
+    // By default assume "input" event is not handled (as in IE 10).
+    // `oninput` triggers as sliders slides, while `onchange` triggers
+    // only when the slider stops, so `oninput` is preferred.
+    let inputEventTriggers = false;
+
     slider.addEventListener("input", function () {
+	inputEventTriggers = true;
 	updateCircles();
+    });
+    slider.addEventListener("change", function () {
+	if (!inputEventTriggers) {
+	    updateCircles();
+	}
     });
 };
