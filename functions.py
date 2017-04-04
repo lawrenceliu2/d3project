@@ -1,18 +1,19 @@
 import csv
 
 n = open('csv/nyc.csv', 'r')
-nyc = csv.reader(n)
+nyc = n.readlines()
+nyc_list = list(nyc)
+#print nyc_list
 
-d = open('csv/nycdoe.csv')
-doe = csv.reader(d)
+d = open('csv/nycdoe.csv', 'r')
+doe = d.readlines()
 
-h = open('csv/specializedhs.csv')
-hs = csv.reader(h)
+h = open('csv/specializedhs.csv', 'r')
+hs = h.readlines()
 
 def racepercent(borough, year):
     races = {}
     for row in nyc[1:]:
-        print row
         if (row[0] == borough and row[1] == year):
             population = row[2] * 1.0
             white = row[3] / population
@@ -21,12 +22,12 @@ def racepercent(borough, year):
             other = row[7] / population
             hispanic = row[8] / population
             foreign = row[9] / population
+            print "hello"
             races = {"population": population, "white": white, "black": black, "asian": asian, "other": other, "hispanic": hispanic, "foreign": foreign}
     return races
 
-#p = racepercent(nyc, 1900)
-#print p
-# WHAT IS THIS ERROR WHY IS IT BEING LIKE THIS TypeError: '_csv.reader' object has no attribute '__getitem__'
+p = racepercent(nyc, 1900)
+print p.keys()
 
 def doe_genderpercent(borough, year):
     genders = {}
