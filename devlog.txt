@@ -65,5 +65,16 @@ Wrote the first function in python
 chloeD -- 2017-04-04 01:30
 Wrote all the python functions... there is a bug and I'll fix it in class!
 
+wilsonB -- 2017-04-04 14:00
+Fall back on onchange event (on the slider) for browsers which don't
+support oninput (oninput is preferable: it triggers as the user slides,
+while onchange triggers when user releases slider).
+
 chloeD -- 2017-04-04 14:05
 Debugging but NEED TO FINISH :O
+
+wilsonB -- 2017-04-05 19:50
+Make frontend rendering reflect the base functionality of our
+original mockup: a row of bubbles for each school, and one for
+the whole city, where each row has a bubble for each demographic
+group.
