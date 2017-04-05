@@ -95,3 +95,7 @@ minor python utility debugging
 
 fortune S -- 2017-04-05 01:05
 linking data to js through jinja and magic
+
+wilsonB -- 2017-04-05 01:10
+competed compiling high school data into complete
+dataset, and giving it to client as JSON
