@@ -70,6 +70,11 @@ Fall back on onchange event (on the slider) for browsers which don't
 support oninput (oninput is preferable: it triggers as the user slides,
 while onchange triggers when user releases slider).
 
+fortuneS -- 2017-04-04 14:00
+Changed slider value ranges to match data,
+created second slider for overall population (has a different range),
+changed/added data grouping.
+
 chloeD -- 2017-04-04 14:05
 Debugging but NEED TO FINISH :O
 
