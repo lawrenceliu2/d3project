@@ -31,9 +31,9 @@ window.onload = function () {
         return svg.selectAll("circle").data(DEMOGRAPHICS).enter().append(function (demographic, i) {
             var circ = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             // Place circles with at least enough space to not touch (2 * MAX_RADIUS), plus a 50px margin
-            // The final `+ MAX_RADIUS` is so that the first circle (i = 0) is not centered at x=0 (which would cut it off)
-            circ.setAttribute("cx", i * (2 * MAX_RADIUS + 50) + MAX_RADIUS);
-            circ.setAttribute("cy", 50);
+            // The final `+ MAX_RADIUS * 1.5` is so that the first circle (i = 0) is not centered at x=0 (which would cut it off)
+            circ.setAttribute("cx", i * (2.75 * MAX_RADIUS) + MAX_RADIUS * 1.25);
+            circ.setAttribute("cy", MAX_RADIUS * 1.25);
             return circ;
         });
     };
