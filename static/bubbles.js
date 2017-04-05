@@ -4,7 +4,7 @@ window.onload = function () {
 
     // To add more demographics, add them to this list and the headers
     // in the table in index.html, in the same order.
-    const DEMOGRAPHICS = ["asian", "black", "hispanic", "white", "foreign", "other"];
+    const DEMOGRAPHICS = ["asian", "black", "hispanic", "white", "other"];
 
     /* Struture of data:
      * [ // array of years
