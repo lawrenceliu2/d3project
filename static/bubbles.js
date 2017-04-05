@@ -45,7 +45,7 @@ window.onload = function () {
         DEMOGRAPHICS.forEach(function (key) {
             circles.transition().attr("r", function (demo) {
                 // Scale area to be within maximum
-                let area = demoData[demo] / 100 * MAX_AREA;
+                let area = demoData[demo] * MAX_AREA;
                 return "" + Math.sqrt(area / Math.PI);
             });
         });
@@ -75,29 +75,29 @@ window.onload = function () {
     let yearSlider = document.getElementById("yearInput");
     let minYr = +yearSlider.getAttribute("min");
 
-    let years = [];
+    //let years = [];
     // We will use the following to read the data from the document
-    // let years = JSON.parse(document.getElementById("data-table").getAttribute("data-years"));
+    let years = JSON.parse(document.getElementById("data-table").getAttribute("data-years"));
 
     // Put random data in `years`:
-    {
-        let maxYr = +yearSlider.getAttribute("max");
-        let randomDemoData = function () {
-            let demos = {};
-            DEMOGRAPHICS.forEach(function (key) {
-                demos[key] = Math.random() * 80;
-            });
-            return demos;
-        };
-        for (let yearI = 0; minYr + yearI <= maxYr; yearI += 1) {
-            let yearData = {};
-            // Make random demographic datasets for each category of row
-            ROW_CATEGORIES.forEach(function (category) {
-                yearData[category] = randomDemoData();
-            });
-            years.push(yearData);
-        }
-    }
+    //{
+    //    let maxYr = +yearSlider.getAttribute("max");
+    //    let randomDemoData = function () {
+    //        let demos = {};
+    //        DEMOGRAPHICS.forEach(function (key) {
+    //            demos[key] = Math.random() * 80;
+    //        });
+    //        return demos;
+    //    };
+    //    for (let yearI = 0; minYr + yearI <= maxYr; yearI += 1) {
+    //        let yearData = {};
+    //        // Make random demographic datasets for each category of row
+    //        ROW_CATEGORIES.forEach(function (category) {
+    //            yearData[category] = randomDemoData();
+    //        });
+    //        years.push(yearData);
+    //    }
+    //}
 
     // Return the data for the year currently selected by the yearSlider
     let getCurrentYearData = function () {

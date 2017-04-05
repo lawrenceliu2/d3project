@@ -24,7 +24,7 @@ def racepercent(borough, year):
     races = dict()
     for row in nyc_list[1:]:
         for n in range(len(row)):
-            if row[0].strip() == borough and int(row[1].strip()) == year:
+            if (borough == 'all' or row[0].strip() == borough) and int(row[1].strip()) == year:
                 white = int(row[3].strip())
                 black = int(row[5].strip()) #do not be alarmed! I KNOW HOW TO COUNT!
                 asian = int(row[6].strip())
@@ -114,6 +114,23 @@ def hs_racepercent(borough, year):
                 total = (asian + black + hispanic + other + white) * 1.0
                 races.update({"total": total, "asian": asian/total, "black": black/total, "hispanic": hispanic/total, "other": other/total, "white": white/total})
     return races
+
+schools = ["stuy","bxsci","bktech","bklatin","hsmse","lag","lehman","qsci","sitech"]
+
+def calc_all_data():
+    years = []
+    # 2011 to 2015
+    for yearNum in range(2011, 2016):
+        yr = {}
+        for sch in schools:
+            yr[sch] = hs_racepercent(sch, yearNum)
+        yr["nyc"] = racepercent('all', yearNum)
+        years += [yr]
+    return years
+
+data = calc_all_data()
+
+
 #testing
 r = hs_racepercent('stuy', 2013)
 print r['asian']
