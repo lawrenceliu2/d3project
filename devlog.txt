@@ -90,5 +90,5 @@ additional styling in html, attempts at css show no results
 fortuneS -- 2017-04-05 00:00
 minor python utility debugging
 
-fortune S -- 2017-04-05 00:30
-prematurely linking data to js through jinja
+fortune S -- 2017-04-05 01:05
+linking data to js through jinja and magic
