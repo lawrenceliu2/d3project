@@ -7,7 +7,6 @@
   </head>
 
   <body>
-    <center>
     <h1>School Diversity</h1>
     Below is a visual representation of the different demographics in the New York City school system; information is organized 
     by setting, from the DoE as a whole to the compositions of the boroughs, even down to students in specific school(s). 
@@ -16,22 +15,40 @@
 
     <div>
       <p>DoE &amp; Specialized High Schools:</p>
-      <div>
-          <h3>New York City</h3>
-          <svg id="slate-nyc"></svg>
-      </div>
-      <div>
-          <h3>Stuyvesant</h3>
-          <svg id="slate-stuy"></svg>
-      </div>
-      <div>
-          <h3>Brox Science</h3>
-          <svg id="slate-bronx"></svg>
-      </div>
-      <div>
-          <h3>Brooklyn Tech</h3>
-          <svg id="slate-tech"></svg>
-      </div>
+      <!--
+          In this table, the first row is just headers.
+          The rest of the rows have a category-label on the left,
+          and a very wide cell (spanning 6 columns, for each demographic
+          group label), which is just an <SVG> element rendering the
+          circles below each demographic group.
+      -->
+      <table>
+          <tr>
+              <th></th>
+              <th>Asian (%)</th>
+              <th>Black (%)</th>
+              <th>Hispanic (%)</th>
+              <th>White (%)</th>
+              <th>Foreign (%)</th>
+              <th>Other (%)</th>
+          </tr>
+          <tr>
+              <td>New York City</td>
+              <td colspan=6><svg width="700" id="slate-nyc"></svg></td>
+          </tr>
+          <tr>
+              <td>Stuyvesant</td>
+              <td colspan=6><svg width="700" id="slate-stuy"></svg></td>
+          </tr>
+          <tr>
+              <td>Brox Science</td>
+              <td colspan=6><svg width="700" id="slate-bronx"></svg></td>
+          </tr>
+          <tr>
+              <td>Brooklyn Tech</td>
+              <td colspan=6><svg width="700" id="slate-tech"></svg></td>
+          </tr>
+      </table>
     </div>
 
     <form name="yearselector">
@@ -53,6 +70,5 @@
 
     <script src="/static/bubbles.js"></script>
 
-    </center>
   </body>
 </html>

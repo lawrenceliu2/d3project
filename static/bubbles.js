@@ -2,7 +2,9 @@ window.onload = function () {
     "use strict";
     // Use http://www.w3.org/2000/svg for svg elements
 
-    const DEMOGRAPHICS = ["asian", "black", "hispanic", "foreign", "other"];
+    // To add more demographics, add them to this list and the headers
+    // in the table in index.html, in the same order.
+    const DEMOGRAPHICS = ["asian", "black", "hispanic", "white", "foreign", "other"];
 
     /* Struture of data:
      * [ // array of years
@@ -18,6 +20,9 @@ window.onload = function () {
      * ]
      */
 
+    const MAX_RADIUS = 50;
+    const MAX_AREA = Math.PI * MAX_RADIUS * MAX_RADIUS;
+
     // Take an <svg> d3 selection, return a .append() of SVG circles to that <svg>.
     let setupRow = function (svg) {
         // The data for each circle is the name of the demographic;
@@ -25,7 +30,9 @@ window.onload = function () {
         // that the bubble represents, in our model (data).
         return svg.selectAll("circle").data(DEMOGRAPHICS).enter().append(function (demographic, i) {
             var circ = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            circ.setAttribute("cx", i * 50 + 25);
+            // Place circles with at least enough space to not touch (2 * MAX_RADIUS), plus a 50px margin
+            // The final `+ MAX_RADIUS` is so that the first circle (i = 0) is not centered at x=0 (which would cut it off)
+            circ.setAttribute("cx", i * (2 * MAX_RADIUS + 50) + MAX_RADIUS);
             circ.setAttribute("cy", 50);
             return circ;
         });
@@ -36,18 +43,25 @@ window.onload = function () {
     let updateRow = function (circles, demoData) {
         DEMOGRAPHICS.forEach(function (key) {
             circles.transition().attr("r", function (demo) {
-                // Consider demoData[demo] (the percentage) to be the
-                // area of the circle, and work back to get the radius
-                return "" + Math.sqrt(demoData[demo] / Math.PI);
+                // Scale area to be within maximum
+                let area = demoData[demo] / 100 * MAX_AREA;
+                console.log(area);
+                return "" + Math.sqrt(area / Math.PI);
             });
         });
     };
 
+    // To add more categories, just add their SVG elements to this list:
     let svgs = {
         "nyc": d3.select("#slate-nyc"),
         "stuy": d3.select("#slate-stuy"),
         "bronx": d3.select("#slate-bronx"),
-        "tech": d3.select("#slate-tech"),
+        "tech": d3.select("#slate-tech")
+        //"latin": d3.select("#slate-latin"),
+        //"hsmse": d3.select("#slate-hsmse"),
+        //"lehman": d3.select("#slate-lehman"),
+        //"queens": d3.select("#slate-queens"),
+        //"statenIsland": d3.select("#slate-statenIsland")
     };
     const ROW_CATEGORIES = Object.keys(svgs);
 
