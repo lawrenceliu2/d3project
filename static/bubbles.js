@@ -56,12 +56,13 @@ window.onload = function () {
         "nyc": d3.select("#slate-nyc"),
         "stuy": d3.select("#slate-stuy"),
         "bronx": d3.select("#slate-bronx"),
-        "tech": d3.select("#slate-tech")
-        //"latin": d3.select("#slate-latin"),
-        //"hsmse": d3.select("#slate-hsmse"),
-        //"lehman": d3.select("#slate-lehman"),
-        //"queens": d3.select("#slate-queens"),
-        //"statenIsland": d3.select("#slate-statenIsland")
+        "tech": d3.select("#slate-tech"),
+        "latin": d3.select("#slate-latin"),
+        "hsmse": d3.select("#slate-hsmse"),
+        "laguardia": d3.select("#slate-laguardia"),
+        "lehman": d3.select("#slate-lehman"),
+        "queens": d3.select("#slate-queens"),
+        "statenIsland": d3.select("#slate-statenIsland")
     };
     const ROW_CATEGORIES = Object.keys(svgs);
 
