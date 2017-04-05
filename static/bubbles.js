@@ -75,8 +75,13 @@ window.onload = function () {
     let minYr = +yearSlider.getAttribute("min");
 
     let years = [];
-    // Generate random data:
-    (function () {
+    // Function to read JSON from an attribute in HTML (use once we have data):
+    let readJSON = function () {
+        let json = document.getElementById("data-table").getAttribute("data-years");
+        years = JSON.parse(json);
+    };
+    // Put random data in `years`:
+    {
         let maxYr = +yearSlider.getAttribute("max");
         let randomDemoData = function () {
             let demos = {};
@@ -93,7 +98,7 @@ window.onload = function () {
             });
             years.push(yearData);
         }
-    }());
+    }
 
     // Return the data for the year currently selected by the yearSlider
     let getCurrentYearData = function () {
