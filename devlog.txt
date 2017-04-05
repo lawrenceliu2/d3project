@@ -87,6 +87,9 @@ group.
 fortuneS -- 2017-04-04 23:50
 additional styling in html, attempts at css show no results
 
+chloeD -- 2017-04-04 23:55
+finished python functions
+
 fortuneS -- 2017-04-05 00:00
 minor python utility debugging
 
