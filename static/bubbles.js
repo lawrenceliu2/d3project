@@ -75,11 +75,9 @@ window.onload = function () {
     let minYr = +yearSlider.getAttribute("min");
 
     let years = [];
-    // Function to read JSON from an attribute in HTML (use once we have data):
-    let readJSON = function () {
-        let json = document.getElementById("data-table").getAttribute("data-years");
-        years = JSON.parse(json);
-    };
+    // We will use the following to read the data from the document
+    // let years = JSON.parse(document.getElementById("data-table").getAttribute("data-years"));
+
     // Put random data in `years`:
     {
         let maxYr = +yearSlider.getAttribute("max");
