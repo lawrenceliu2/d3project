@@ -78,11 +78,17 @@ changed/added data grouping.
 chloeD -- 2017-04-04 14:05
 Debugging but NEED TO FINISH :O
 
-fortuneS -- 2017-04-04 23:50
-additional styling in html, attempts at css show no results
-
-wilsonB -- 2017-04-05 19:50
+wilsonB -- 2017-04-04 19:50
 Make frontend rendering reflect the base functionality of our
 original mockup: a row of bubbles for each school, and one for
 the whole city, where each row has a bubble for each demographic
 group.
+
+fortuneS -- 2017-04-04 23:50
+additional styling in html, attempts at css show no results
+
+fortuneS -- 2017-04-05 00:00
+minor python utility debugging
+
+fortune S -- 2017-04-05 00:30
+prematurely linking data to js through jinja
