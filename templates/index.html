@@ -17,6 +17,13 @@
 
     <div>
       <p><h2>DoE &amp; Specialized High Schools:</h2></p>
+
+      <form name="yearselector">
+          <label>Year:</label>
+          <input type="range" name="year" id="yearInput" value="2013" min="2011" max="2015" oninput="yearOutput.value = yearInput.value">
+          <output name="yearOutput" id="yearOutput">2013</output>
+      </form>
+
       <!--
           In this table, the first row is just headers.
           The rest of the rows have a category-label on the left,
@@ -76,11 +83,6 @@
           </tr>
       </table>
     </div>
-
-    <form name="yearselector">
-      <input type="range" name="year" id="yearInput" value="2013" min="2011" max="2015" oninput="yearOutput.value = yearInput.value">
-      <output name="yearOutput" id="yearOutput">2013</output>
-    </form>
 
     <div>
       <p><h2>Overall Population Data:</h2></p>
