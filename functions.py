@@ -22,14 +22,17 @@ def racepercent(borough, year):
     races = dict()
     for row in nyc_list[1:]:
         for n in range(len(row)):
-            if row[0] == borough and row[1] == year:
-                population = row[2] * 1.0
-                white = row[3] / population
-                black = row[5] / population #do not be alarmed! I KNOW HOW TO COUNT!
-                asian = row[6] / population
-                other = row[7] / population
-                hispanic = row[8] / population
-                foreign = row[9] / population
+            if row[0].strip() == borough and int(row[1].strip()) == year:
+                population = int(row[2].strip()) * 1.0
+                white = int(row[3].strip()) / population
+                black = int(row[5].strip()) / population #do not be alarmed! I KNOW HOW TO COUNT!
+                asian = int(row[6].strip()) / population
+                other = int(row[7].strip()) / population
+                if (row[8].strip() != 'null'):
+                    hispanic = int(row[8].strip()) / population
+                else:
+                    hispanic = 0
+                foreign = int(row[9].strip()) / population
                 races.update({'population': population, 'white': white, 'black': black, 'asian': asian, "other": other, 'hispanic': hispanic, 'foreign': foreign})
     return races
 ##THIS IS WHERE I NEED HELP IM NOT SURE WHY IT WONT ADD THE DATA TO THE DICT
