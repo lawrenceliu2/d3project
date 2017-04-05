@@ -74,10 +74,10 @@ window.onload = function () {
     let yearSlider = document.getElementById("yearInput");
     let minYr = +yearSlider.getAttribute("min");
 
+    let years = [];
     // Generate random data:
-    let years = (function () {
-        let maxYr = +yearSlider.getAttribute("max");
-        let result = [];
+    (function () {
+        let yearRange = +yearSlider.getAttribute("max") - minYr;
         let randomDemoData = function () {
             let demos = {};
             DEMOGRAPHICS.forEach(function (key) {
@@ -85,15 +85,14 @@ window.onload = function () {
             });
             return demos;
         };
-        for (let yearI = 0; yearI < maxYr - minYr; yearI += 1) {
+        for (let yearI = 0; yearI < yearRange; yearI += 1) {
             let yearData = {};
             // Make random demographic datasets for each category of row
             ROW_CATEGORIES.forEach(function (category) {
                 yearData[category] = randomDemoData();
             });
-            result.push(yearData);
+            years.push(yearData);
         }
-        return result;
     }());
 
     let getCurrentYearRows = function () {
