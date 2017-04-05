@@ -44,6 +44,7 @@ print r['other']
 print r['hispanic']
 print r['foreign']
 print r['total']
+print ""
 
 def doe_genderpercent(borough, year):
     genders = dict()
@@ -72,6 +73,7 @@ def doe_racepercent(borough, year):
                 white = int(row[7].strip())
                 total = (asian + black + hispanic + other + white) * 1.0
                 races.update({'total': total, 'asian': asian/total, 'black': black/total, 'hispanic': hispanic/total, 'other': other/total, 'white': white/total})
+    return races
 #testing
 r = doe_racepercent('brooklyn', 2013)
 print r['asian']
@@ -80,6 +82,7 @@ print r['hispanic']
 print r['other']
 print r['white']
 print r['total']
+print ""
 
 def hs_genderpercent(borough, year):
     genders = dict()
@@ -110,11 +113,10 @@ def hs_racepercent(borough, year):
                 races.update({"total": total, "asian": asian/total, "black": black/total, "hispanic": hispanic/total, "other": other/total, "white": white/total})
     return races
 #testing
-r = doe_racepercent('brooklyn', 2013)
+r = hs_racepercent('stuy', 2013)
 print r['asian']
 print r['black']
 print r['hispanic']
 print r['other']
 print r['white']
 print r['total']
-
