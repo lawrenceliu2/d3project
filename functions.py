@@ -23,33 +23,35 @@ def racepercent(borough, year):
     for row in nyc_list[1:]:
         for n in range(len(row)):
             if row[0].strip() == borough and int(row[1].strip()) == year:
-                population = int(row[2].strip()) * 1.0
-                white = int(row[3].strip()) / population
-                black = int(row[5].strip()) / population #do not be alarmed! I KNOW HOW TO COUNT!
-                asian = int(row[6].strip()) / population
-                other = int(row[7].strip()) / population
+                population = int(row[2].strip())
+                white = int(row[3].strip()) * 100.0 / population
+                black = int(row[5].strip()) * 100.0 / population #do not be alarmed! I KNOW HOW TO COUNT!
+                asian = int(row[6].strip()) * 100.0 / population
+                other = int(row[7].strip()) * 100.0 / population
                 if (row[8].strip() != 'null'):
-                    hispanic = int(row[8].strip()) / population
+                    hispanic = int(row[8].strip()) * 100.0 / population
                 else:
                     hispanic = 0
-                foreign = int(row[9].strip()) / population
+                foreign = int(row[9].strip()) * 100.0 / population
                 races.update({'population': population, 'white': white, 'black': black, 'asian': asian, "other": other, 'hispanic': hispanic, 'foreign': foreign})
     return races
-##THIS IS WHERE I NEED HELP IM NOT SURE WHY IT WONT ADD THE DATA TO THE DICT
-p = racepercent('manhattan', 1900)
-print p.keys()
+#testing
+#p = racepercent('manhattan', 1900)
+#print p["foreign"]
 
-##IGNORE THIS FOR NOW ONCE THE FIRST FUNCITON WORKS, THESE WILL ALL BE VERY SIMILAR
 def doe_genderpercent(borough, year):
-    genders = {}
-    for row in doe[1:]:
-        print row
-        if (row[0] == borough and row[1] == year):
-            total = row[2] * 1.0
-            female = row[3] / total
-            male = row[4] / population
-            genders = {"total": total, "female": female, "male": male}
+    genders = dict()
+    for row in doe_list[1:]:
+        for n in range(len(row)):
+            if row[0].strip() == borough and int(row[1].strip()) == year:
+                total = int(row[2].strip())
+                female = int(row[3].strip()) * 100.0 / total
+                male = int(row[4].strip()) * 100.0 / total
+                genders.update({'total': total, 'female': female, 'male': male})
     return genders
+#testing
+g = doe_genderpercent('manhattan', 1900)
+print g.keys()
 
 def doe_racepercent(borough, year):
     races = {}
