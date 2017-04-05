@@ -1,5 +1,7 @@
 import csv
 
+data = []
+
 #nyc data
 with open('csv/nyc.csv', 'rb') as n:
     reader = csv.reader(n)
