@@ -24,29 +24,30 @@ window.onload = function () {
     const MAX_RADIUS = 50;
     const MAX_AREA = Math.PI * MAX_RADIUS * MAX_RADIUS;
 
-    // Take an <svg> d3 selection, return a .append() of SVG circles to that <svg>.
+    // Take an <svg> d3 selection, return a .append() of SVG rects to that <svg>.
     let setupRow = function (svg) {
-        // The data for each circle is the name of the demographic;
-        // when deciding the radius of the circle we look up the percentage
+        // The data for each rect is the name of the demographic;
+        // when deciding the radius of the rect we look up the percentage
         // that the bubble represents, in our model (data).
-        return svg.selectAll("circle").data(DEMOGRAPHICS).enter().append(function (demographic, i) {
-            var circ = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            // Place circles with at least enough space to not touch (2 * MAX_RADIUS), plus a 50px margin
-            // The final `+ MAX_RADIUS * 1.5` is so that the first circle (i = 0) is not centered at x=0 (which would cut it off)
-            circ.setAttribute("cx", i * (2.75 * MAX_RADIUS) + MAX_RADIUS * 1.25);
-            circ.setAttribute("cy", MAX_RADIUS * 1.25);
+        return svg.selectAll("rect").data(DEMOGRAPHICS).enter().append(function (demographic, i) {
+            var circ = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+            // Place rects with at least enough space to not touch (2 * MAX_RADIUS), plus a 50px margin
+            // The final `+ MAX_RADIUS * 1.5` is so that the first rect (i = 0) is not centered at x=0 (which would cut it off)
+            circ.setAttribute("x", i * (2.75 * MAX_RADIUS) + MAX_RADIUS * 1.25);
+            circ.setAttribute("y", MAX_RADIUS * 1.25);
+            circ.setAttribute("width", 5);
             return circ;
         });
     };
 
-    // Params: `circles` is a d3 .append() of <circle>s to an <svg>
-    // Updates it with circles of the proper sizes based on the given demographic data
-    let updateRow = function (circles, demoData) {
+    // Params: `rects` is a d3 .append() of <circle>s to an <svg>
+    // Updates it with rects of the proper sizes based on the given demographic data
+    let updateRow = function (rects, demoData) {
         DEMOGRAPHICS.forEach(function (key) {
-            circles.transition().attr("r", function (demo) {
+            rects.transition().attr("height", function (demo) {
                 // Scale area to be within maximum
                 let area = demoData[demo] * MAX_AREA;
-                return "" + Math.sqrt(area / Math.PI);
+                return "" + area;
             });
         });
     };
@@ -67,9 +68,9 @@ window.onload = function () {
     const ROW_CATEGORIES = Object.keys(svgs);
     console.log(JSON.stringify(ROW_CATEGORIES));
 
-    let circleControllers = {};
+    let rectControllers = {};
     ROW_CATEGORIES.forEach(function (key) {
-        circleControllers[key] = setupRow(svgs[key]);
+        rectControllers[key] = setupRow(svgs[key]);
     });
 
     let yearSlider = document.getElementById("yearInput");
@@ -107,7 +108,7 @@ window.onload = function () {
     // Update every SVG, all at once, based on the data for the current year
     let updateAll = function () {
         ROW_CATEGORIES.forEach(function (category) {
-            updateRow(circleControllers[category], getCurrentYearData()[category]);
+            updateRow(rectControllers[category], getCurrentYearData()[category]);
         });
     };
 
