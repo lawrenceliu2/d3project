@@ -20,6 +20,7 @@ window.onload = function () {
      * ]
      */
 
+    // Maximum size of the bubbles (used to scale and position them appropriately)
     const MAX_RADIUS = 50;
     const MAX_AREA = Math.PI * MAX_RADIUS * MAX_RADIUS;
 
@@ -45,7 +46,6 @@ window.onload = function () {
             circles.transition().attr("r", function (demo) {
                 // Scale area to be within maximum
                 let area = demoData[demo] / 100 * MAX_AREA;
-                console.log(area);
                 return "" + Math.sqrt(area / Math.PI);
             });
         });
@@ -77,7 +77,7 @@ window.onload = function () {
     let years = [];
     // Generate random data:
     (function () {
-        let yearRange = +yearSlider.getAttribute("max") - minYr;
+        let maxYr = +yearSlider.getAttribute("max");
         let randomDemoData = function () {
             let demos = {};
             DEMOGRAPHICS.forEach(function (key) {
@@ -85,7 +85,7 @@ window.onload = function () {
             });
             return demos;
         };
-        for (let yearI = 0; yearI < yearRange; yearI += 1) {
+        for (let yearI = 0; minYr + yearI <= maxYr; yearI += 1) {
             let yearData = {};
             // Make random demographic datasets for each category of row
             ROW_CATEGORIES.forEach(function (category) {
@@ -95,21 +95,24 @@ window.onload = function () {
         }
     }());
 
-    let getCurrentYearRows = function () {
+    // Return the data for the year currently selected by the yearSlider
+    let getCurrentYearData = function () {
         return years[+yearSlider.value - minYr];
     };
 
+    // Update every SVG, all at once, based on the data for the current year
     let updateAll = function () {
         ROW_CATEGORIES.forEach(function (category) {
-            updateRow(circleControllers[category], getCurrentYearRows()[category]);
+            updateRow(circleControllers[category], getCurrentYearData()[category]);
         });
     };
 
     updateAll();
 
-    // By default assume "input" event is not handled (as in IE 10).
-    // `oninput` triggers as sliders slides, while `onchange` triggers
-    // only when the yearSlider stops, so `oninput` is preferred.
+    // By default assume the `oninput` event is not supported (as in IE 10) to
+    // fall back on `onchange` if `oninput` isn't supported.
+    // `oninput` triggers as a user drags the slider, while `onchange` triggers
+    // only when the user stops dragging (releases it). Of course `oninput` is preferred.
     let inputEventTriggers = false;
 
     yearSlider.addEventListener("input", function () {
