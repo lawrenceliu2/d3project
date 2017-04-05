@@ -77,7 +77,7 @@ window.onload = function () {
     let years = [];
     // Generate random data:
     (function () {
-        let yearRange = +yearSlider.getAttribute("max") - minYr;
+        let maxYr = +yearSlider.getAttribute("max");
         let randomDemoData = function () {
             let demos = {};
             DEMOGRAPHICS.forEach(function (key) {
@@ -85,7 +85,7 @@ window.onload = function () {
             });
             return demos;
         };
-        for (let yearI = 0; yearI < yearRange; yearI += 1) {
+        for (let yearI = 0; minYr + yearI <= maxYr; yearI += 1) {
             let yearData = {};
             // Make random demographic datasets for each category of row
             ROW_CATEGORIES.forEach(function (category) {
