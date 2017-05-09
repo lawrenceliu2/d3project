@@ -1,5 +1,7 @@
 ## Team baseFunctionality
 
+**Team Members:** Wilson Berkow, Chloe Delfau, Lawrence Liu (PM), and Fortune Soleil
+
 **Project:** Stuy diversity over time
 
 Creating graphs and representing data of Stuyvesant students’ races and ethnicities.
